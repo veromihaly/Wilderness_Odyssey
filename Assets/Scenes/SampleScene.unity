@@ -801,7 +801,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: '3 Stick [0]'
 --- !u!222 &263008889
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1444,7 +1444,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: '3 Stone [0]'
 --- !u!222 &617823451
 CanvasRenderer:
   m_ObjectHideFlags: 0
