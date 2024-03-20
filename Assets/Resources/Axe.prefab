@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -4017647637155660359}
   - component: {fileID: -1710208211900067220}
   m_Layer: 5
-  m_Name: Stone
+  m_Name: Axe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -67,7 +67,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 583675a75bcb2a941ac555b9ccd513a9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3b27f65d03db607428f4666c38972d77, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
