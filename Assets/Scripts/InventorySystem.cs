@@ -93,8 +93,25 @@ public class InventorySystem : MonoBehaviour
 
         itemList.Add(itemName);
 
+        TriggerPickupPopUp(itemName, itemToAdd.GetComponent<Image>().sprite);
+
         ReCalculateList();
         CraftingSystem.Instance.RefreshNeededItems();
+    }
+
+    void TriggerPickupPopUp(string itemName,Sprite itemSprite)
+    {
+        pickupAlert.SetActive(true);
+        pickupName.text = itemName;
+        pickupImage.sprite = itemSprite;
+
+        StartCoroutine(closePickupPopUp());
+    }
+
+    public IEnumerator closePickupPopUp()
+    {
+        yield return new WaitForSeconds(0.5f); 
+        pickupAlert.SetActive(false);
     }
 
     private GameObject FindNextEmptySlot()
