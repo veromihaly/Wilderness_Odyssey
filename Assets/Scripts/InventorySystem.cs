@@ -6,8 +6,9 @@ using UnityEngine.UI;
  
 public class InventorySystem : MonoBehaviour
 {
- 
-   public static InventorySystem Instance { get; set; }
+    public GameObject ItemInfoUi;
+    
+    public static InventorySystem Instance { get; set; }
  
     public GameObject inventoryScreenUI;
 

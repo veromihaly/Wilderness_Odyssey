@@ -73,4 +73,19 @@ public class PlayerState : MonoBehaviour
             currentCalories -= 10;
         }
     }
+
+    public void setHealth(float newHealth)
+    {
+        currentHealth = newHealth;
+    }
+
+    public void setCalories(float newCalories)
+    {
+        currentCalories = newCalories;
+    }
+
+    public void setHydration(float newHydration)
+    {
+        currentHydrationPercent = newHydration;
+    }
 }

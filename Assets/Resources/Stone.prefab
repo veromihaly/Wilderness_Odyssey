@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6346453002810459456}
   - component: {fileID: -4017647637155660359}
   - component: {fileID: -1710208211900067220}
+  - component: {fileID: -5182746286522932936}
   m_Layer: 5
   m_Name: Stone
   m_TagString: Untagged
@@ -101,3 +102,23 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &-5182746286522932936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2796177136735831888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2730ca50841c6bf46bc01c9fa077ccad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTrashable: 0
+  thisName: Stone
+  thisDescription: A small, dirty stone.
+  thisFunctionality: Used for crafting.
+  isConsumable: 0
+  healthEffect: 0
+  caloriesEffect: 0
+  hydrationEffect: 0
