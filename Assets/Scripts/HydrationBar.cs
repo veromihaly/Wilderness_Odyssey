@@ -27,6 +27,6 @@ public class HydrationBar : MonoBehaviour
         float fillValue = currentHydrationPercent / maxHydrationPercent; // 0 - 1
         slider.value = fillValue;
 
-        hydrationPercentCounter.text = currentHydrationPercent + "/" + maxHydrationPercent; // 100/100
+        hydrationPercentCounter.text = currentHydrationPercent + "%"; // 100/100
     }
 }
