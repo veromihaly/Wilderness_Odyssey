@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 9fc0d4010bbf28b4594072e72b8655ab
-DefaultImporter:
+guid: 1a96222b818f5564a9f40a386fc25a5a
+PrefabImporter:
   externalObjects: {}
   userData: 
   assetBundleName: 
@@ -10,5 +10,5 @@ AssetOrigin:
   productId: 274072
   packageName: Otoh's Fruit Box
   packageVersion: 1.0
-  assetPath: Assets/Scenes/SampleScene.unity
+  assetPath: Assets/Otoh Art/Prefabs/pear.prefab
   uploadId: 637346

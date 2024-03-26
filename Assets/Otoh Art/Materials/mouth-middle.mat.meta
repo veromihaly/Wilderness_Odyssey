@@ -1,7 +1,8 @@
 fileFormatVersion: 2
-guid: 9fc0d4010bbf28b4594072e72b8655ab
-DefaultImporter:
+guid: c96f5892d2a04c94eabb7c9bceda0da7
+NativeFormatImporter:
   externalObjects: {}
+  mainObjectFileID: 2100000
   userData: 
   assetBundleName: 
   assetBundleVariant: 
@@ -10,5 +11,5 @@ AssetOrigin:
   productId: 274072
   packageName: Otoh's Fruit Box
   packageVersion: 1.0
-  assetPath: Assets/Scenes/SampleScene.unity
+  assetPath: Assets/Otoh Art/Materials/mouth-middle.mat
   uploadId: 637346
