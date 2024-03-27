@@ -70,7 +70,6 @@ public class PlayerState : MonoBehaviour
         //testing the bars
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            currentHealth -= 10;
             currentCalories -= 10;
         }
     }
