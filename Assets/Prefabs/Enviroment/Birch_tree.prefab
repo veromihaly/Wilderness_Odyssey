@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8548801165815813158}
   - component: {fileID: 3962383788018961670}
   - component: {fileID: 1489421696075963264}
+  - component: {fileID: 2330464043144764523}
   m_Layer: 0
   m_Name: Birch_tree
   m_TagString: Untagged
@@ -123,4 +124,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 792117dab3153c34cb632a153fe28927, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerInRange: 0
   ItemName: Birch Tree
+--- !u!65 &2330464043144764523
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1595850987042080605}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 12.521061, y: 13.553925, z: 12.640932}
+  m_Center: {x: -0.21279335, y: 6.276413, z: -0.357795}
