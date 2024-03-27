@@ -114,7 +114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2730ca50841c6bf46bc01c9fa077ccad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTrashable: 0
+  isTrashable: 1
   thisName: Stone
   thisDescription: A small, dirty stone.
   thisFunctionality: Used for crafting.

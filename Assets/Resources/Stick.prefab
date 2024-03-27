@@ -68,7 +68,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6c49e7068421f69489444e82a81f7a52, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c923ecaa8c4cd5a46a35169361dbde6b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -114,7 +114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2730ca50841c6bf46bc01c9fa077ccad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTrashable: 0
+  isTrashable: 1
   thisName: Stick
   thisDescription: A dry stick. Might be useful.
   thisFunctionality: Used for crafting.
