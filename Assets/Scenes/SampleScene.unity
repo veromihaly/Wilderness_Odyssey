@@ -6745,8 +6745,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trashAlertUI: {fileID: 358509813}
-  trash_closed: {fileID: 21300000, guid: a61b6bb39119d004196be885f226c7a9, type: 3}
-  trash_opened: {fileID: 21300000, guid: aac97eb22642beb4bac5443791549ae1, type: 3}
+  trash_closed: {fileID: 21300000, guid: 5ff854382dd03544e8e9f261d1c92c9f, type: 3}
+  trash_opened: {fileID: 21300000, guid: 3d425b5c79e5cde4b992f4477e297768, type: 3}
 --- !u!1 &1512032198
 GameObject:
   m_ObjectHideFlags: 0
@@ -6857,7 +6857,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 120, y: 120}
+  m_SizeDelta: {x: 140, y: 140}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1517208912
 MonoBehaviour:
@@ -6879,7 +6879,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d63ec81e24c14424d964e43c9ab4d0a6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fe1c0061432d2884494264fc648c2d2e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -7200,7 +7200,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a61b6bb39119d004196be885f226c7a9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5ff854382dd03544e8e9f261d1c92c9f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
