@@ -18,6 +18,9 @@ public class SelectionManager : MonoBehaviour
 
     public Image centerDotImage;
     public Image handIcon;
+
+    public GameObject selectedTree;
+    public GameObject chopHolder;
  
     private void Start()
     {
@@ -46,7 +49,25 @@ public class SelectionManager : MonoBehaviour
             var selectionTransform = hit.transform;
 
             InteractableObject Interactable = selectionTransform.GetComponent<InteractableObject>();
- 
+
+            ChoppableTree choppableTree = selectionTransform.GetComponent<ChoppableTree>();
+
+            if(choppableTree && choppableTree.playerInRange)
+            {
+                choppableTree.canBeChopped = true;
+                selectedTree = choppableTree.gameObject;
+                chopHolder.gameObject.SetActive(true);
+            }
+            else
+            {
+                if(selectedTree != null)
+                {
+                    selectedTree.gameObject.GetComponent<ChoppableTree>().canBeChopped = false;
+                    selectedTree = null;
+                    chopHolder.gameObject.SetActive(false);
+                }
+            }
+
             if (Interactable && Interactable.playerInRange)
             {
                 onTarget = true;
