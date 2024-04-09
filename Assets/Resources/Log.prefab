@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -1710208211900067220}
   - component: {fileID: -5182746286522932936}
   m_Layer: 5
-  m_Name: Stone
+  m_Name: Log
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -68,7 +68,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 583675a75bcb2a941ac555b9ccd513a9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 65c59ccc59b5690458cb9e5324edc5dc, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -115,13 +115,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isTrashable: 1
-  thisName: Stone
-  thisDescription: A small, dirty stone.
-  thisFunctionality: Used for crafting.
+  thisName: Log
+  thisDescription: A bigger and thicker stick.
+  thisFunctionality: Used for crafting and building.
   isConsumable: 0
   healthEffect: 0
   caloriesEffect: 0
   hydrationEffect: 0
-  isEquippable: 0
+  isEquippable: 1
   isInsideQuickSlot: 0
   isSelected: 0
