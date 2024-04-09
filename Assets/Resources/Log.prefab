@@ -117,11 +117,11 @@ MonoBehaviour:
   isTrashable: 1
   thisName: Log
   thisDescription: A bigger and thicker stick.
-  thisFunctionality: Used for crafting and building.
+  thisFunctionality: Used for making planks.
   isConsumable: 0
   healthEffect: 0
   caloriesEffect: 0
   hydrationEffect: 0
-  isEquippable: 1
+  isEquippable: 0
   isInsideQuickSlot: 0
   isSelected: 0
