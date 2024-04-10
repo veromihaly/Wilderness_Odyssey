@@ -98,8 +98,13 @@ public class CraftingSystem : MonoBehaviour
 
     void CraftAnyItem(Blueprint blueprintToCraft)
     {
-        //add item into inventory
-        InventorySystem.Instance.AddToInventory(blueprintToCraft.itemName);
+        SoundManager.Instance.PlaySound(SoundManager.Instance.craftSound);
+
+        //Produce the amount of items according to the blueprint
+        for (var i = 0; i < blueprintToCraft.numberOfItemsToProduce; i++)
+        {
+            InventorySystem.Instance.AddToInventory(blueprintToCraft.itemName);
+        }
 
         //remove resources from inventory
         if(blueprintToCraft.numOfRequirements == 1)
@@ -187,7 +192,7 @@ public class CraftingSystem : MonoBehaviour
         AxeReq1.text = "3 Stone [" + stone_count + "]";
         AxeReq2.text = "3 Stick [" + stick_count + "]";
 
-        if(stone_count >= 3 && stick_count >= 3)
+        if(stone_count >= 3 && stick_count >= 3 && InventorySystem.Instance.CheckSlotsAvailable(1))
         {
             craftAxeBTN.gameObject.SetActive(true);
         }
@@ -196,11 +201,11 @@ public class CraftingSystem : MonoBehaviour
             craftAxeBTN.gameObject.SetActive(false);
         }
 
-        //---Plank---//
+        //---Plank(2)---//
 
         PlankReq1.text = "1 Log [" + log_count + "]";
 
-        if(log_count >= 1)
+        if(log_count >= 1 && InventorySystem.Instance.CheckSlotsAvailable(2))
         {
             craftPlankBTN.gameObject.SetActive(true);
         }

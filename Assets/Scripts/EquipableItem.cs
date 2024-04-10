@@ -19,6 +19,7 @@ public class EquipableItem : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0) && !InventorySystem.Instance.isOpen && !CraftingSystem.Instance.isOpen) //Left Mouse Button
         {   
+            StartCoroutine(SwingSoundDelay());
             animator.SetTrigger("hit");
         }
     }
@@ -28,7 +29,14 @@ public class EquipableItem : MonoBehaviour
        GameObject selectedTree = SelectionManager.Instance.selectedTree;
         if(selectedTree != null)
         {
+            SoundManager.Instance.PlaySound(SoundManager.Instance.chopTreeSound);
             selectedTree.GetComponent<ChoppableTree>().GetHit();
         } 
+    }
+
+    IEnumerator SwingSoundDelay()
+    {
+        yield return new WaitForSeconds(0.2f);
+        SoundManager.Instance.PlaySound(SoundManager.Instance.toolSwingSound);
     }
 }
