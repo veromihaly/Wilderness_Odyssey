@@ -97,6 +97,7 @@ public class EquipSystem : MonoBehaviour
                 }
                 Text toBeChanged = numbersHolder.transform.Find("number"+number).transform.Find("Text").GetComponent<Text>();
                 toBeChanged.color = Color.white;
+                SoundManager.Instance.PlaySound(SoundManager.Instance.drawToolSound);
             }
             else // We are trying to select the same slot
             {

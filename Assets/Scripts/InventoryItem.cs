@@ -33,7 +33,6 @@ public class InventoryItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     public bool isSelected;
 
     public bool isUseable;
-    public GameObject itemPendingToBeUsed;
  
     private void Start()
     {
@@ -88,17 +87,32 @@ public class InventoryItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
             {
                 EquipSystem.Instance.AddToQuickSlots(gameObject);
                 isInsideQuickSlot = true;
+                SoundManager.Instance.PlaySound(SoundManager.Instance.dropItemSound);
             }
 
             if(isUseable)
             {
-                itemPendingToBeUsed = gameObject;
-
+                ConstructionManager.Instance.itemToBeDestroyed = gameObject;
+                gameObject.SetActive(false);
                 UseItem();
             }
         }
     }
-
+ 
+    // Triggered when the mouse button is released over the item that has this script.
+    public void OnPointerUp(PointerEventData eventData)
+    {
+        if (eventData.button == PointerEventData.InputButton.Right)
+        {
+            if (isConsumable && itemPendingConsumption == gameObject)
+            {
+                DestroyImmediate(gameObject);
+                InventorySystem.Instance.ReCalculateList();
+                CraftingSystem.Instance.RefreshNeededItems();
+            }
+        }
+    }
+ 
     private void UseItem()
     {
         itemInfoUI.SetActive(false);
@@ -132,27 +146,7 @@ public class InventoryItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
                 break;
         }
     }
- 
-    // Triggered when the mouse button is released over the item that has this script.
-    public void OnPointerUp(PointerEventData eventData)
-    {
-        if (eventData.button == PointerEventData.InputButton.Right)
-        {
-            if (isConsumable && itemPendingConsumption == gameObject)
-            {
-                DestroyImmediate(gameObject);
-                InventorySystem.Instance.ReCalculateList();
-                CraftingSystem.Instance.RefreshNeededItems();
-            }
-            if(isUseable && itemPendingToBeUsed == gameObject)
-            {
-                DestroyImmediate(gameObject);
-                InventorySystem.Instance.ReCalculateList();
-                CraftingSystem.Instance.RefreshNeededItems();
-            }
-        }
-    }
- 
+
     private void consumingFunction(float healthEffect, float caloriesEffect, float hydrationEffect)
     {
         itemInfoUI.SetActive(false);

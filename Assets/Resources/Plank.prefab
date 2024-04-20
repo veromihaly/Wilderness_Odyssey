@@ -116,8 +116,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isTrashable: 1
   thisName: Plank
-  thisDescription: Thin but sturdy, perfect to make a house.
-  thisFunctionality: Used for building.
+  thisDescription: Good resource for house building.
+  thisFunctionality: Used for making fundamental elements for houses.
   isConsumable: 0
   healthEffect: 0
   caloriesEffect: 0
@@ -125,3 +125,5 @@ MonoBehaviour:
   isEquippable: 0
   isInsideQuickSlot: 0
   isSelected: 0
+  isUseable: 0
+  itemPendingToBeUsed: {fileID: 0}

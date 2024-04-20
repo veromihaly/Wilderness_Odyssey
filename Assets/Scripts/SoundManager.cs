@@ -15,6 +15,7 @@ public class SoundManager : MonoBehaviour
     public AudioSource pickupItemSound;
     public AudioSource treeFallSound;
     public AudioSource eatConsumableSound;
+    public AudioSource drawToolSound;
 
     //Music
     public AudioSource startingZoneBGMusic;

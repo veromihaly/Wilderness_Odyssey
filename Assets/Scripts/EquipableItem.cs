@@ -7,6 +7,7 @@ using UnityEngine;
 public class EquipableItem : MonoBehaviour
 {
     public Animator animator;
+    private bool swingWait = false;
 
     // Start is called before the first frame update
     void Start()
@@ -17,10 +18,17 @@ public class EquipableItem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetMouseButtonDown(0) && !InventorySystem.Instance.isOpen && !CraftingSystem.Instance.isOpen) //Left Mouse Button
+        if(Input.GetMouseButtonDown(0) && 
+        !InventorySystem.Instance.isOpen &&
+        !CraftingSystem.Instance.isOpen &&
+        swingWait == false &&
+        !ConstructionManager.Instance.inConstructionMode
+        )
         {   
+            swingWait = true;
             StartCoroutine(SwingSoundDelay());
             animator.SetTrigger("hit");
+            StartCoroutine(NewSwingDelay());
         }
     }
 
@@ -37,5 +45,11 @@ public class EquipableItem : MonoBehaviour
     {
         yield return new WaitForSeconds(0.2f);
         SoundManager.Instance.PlaySound(SoundManager.Instance.toolSwingSound);
+    }
+
+    IEnumerator NewSwingDelay()
+    {
+        yield return new WaitForSeconds(1f);
+        swingWait = false;
     }
 }
