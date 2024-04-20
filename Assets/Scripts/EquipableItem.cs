@@ -29,7 +29,6 @@ public class EquipableItem : MonoBehaviour
        GameObject selectedTree = SelectionManager.Instance.selectedTree;
         if(selectedTree != null)
         {
-            SoundManager.Instance.PlaySound(SoundManager.Instance.chopTreeSound);
             selectedTree.GetComponent<ChoppableTree>().GetHit();
         } 
     }
