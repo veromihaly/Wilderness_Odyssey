@@ -22,7 +22,8 @@ public class EquipableItem : MonoBehaviour
         !InventorySystem.Instance.isOpen &&
         !CraftingSystem.Instance.isOpen &&
         swingWait == false &&
-        !ConstructionManager.Instance.inConstructionMode
+        !ConstructionManager.Instance.inConstructionMode &&
+        !MenuManager.Instance.isMenuOpen
         )
         {   
             swingWait = true;
