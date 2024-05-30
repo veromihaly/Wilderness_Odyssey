@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6117eb4edb7323041a1013a284a650bd, type: 3}
+  m_Name: Eleryn_Quest_1
+  m_EditorClassIdentifier: 
+  initialDialog:
+  - 'Hey there!
+
+    I did not expect to meet anyone out here. How did you get here? '
+  - Oh, where are my manners. My name is Eleryn. I am the druid of these woods. What
+    is your name?
+  - Nice to meet you Midas! So you don't remember anything and how you got here.
+    Listen. I will help you out of these woods, but first help me get the things
+    I came for. Apples. I love them! The tasty ones grow around here.
+  acceptOption: Sure.
+  acceptAnswer: Let us get to it then!
+  declineOption: Sorry, my head still hurts.
+  declineAnswer: It's okay, rest for a while then come back to me if you are ready.
+    Do not wander away though, these woods can be dangerous!
+  comebackAfterDecline: Do you feel any better?
+  comebackInProgress: I haven't found any. Have you?
+  comebackCompleted: Ahh the tastiest apples of Drakewood! Great job!
+  finalWords: Now let me show you the way.
+  coinReward: 0
+  rewardItem1: Apple
+  rewardItem2: 
+  firstRequirementItem: Apple
+  firstRequirementAmount: 3
+  secondRequirementItem: 
+  secondRequirementAmount: 0
