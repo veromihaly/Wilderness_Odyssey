@@ -24,6 +24,14 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(!DialogSystem.Instance.dialogUIActive)
+        {
+        Movement();
+        }
+    }
+
+    public void Movement()
+    {
         //checking if we hit the ground to reset our falling velocity, otherwise we will fall faster the next time
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
  
