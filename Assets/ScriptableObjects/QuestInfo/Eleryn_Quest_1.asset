@@ -21,21 +21,31 @@ MonoBehaviour:
   - Nice to meet you Midas! So you don't remember anything and how you got here.
     Listen. I will help you out of these woods, but first help me get the things
     I came for. Apples. I love them! The tasty ones grow around here.
+  initialDialogClips:
+  - {fileID: 8300000, guid: 1b3a90359639f1c49884175a45a56106, type: 3}
+  - {fileID: 8300000, guid: 9d0a1186a923b824f9a5bc45c6cf5271, type: 3}
+  - {fileID: 8300000, guid: 7f089933623a5884b8bf5a6700fc4dbe, type: 3}
   acceptOption: Sure.
   acceptAnswer: Let us get to it then!
+  acceptAnswerClip: {fileID: 8300000, guid: e1be913d1c7329343842655ff0552fe5, type: 3}
   declineOption: Sorry, my head still hurts.
   declineAnswer: It's okay, rest for a while then come back to me if you are ready.
     Do not wander away though, these woods can be dangerous!
+  declineAnswerClip: {fileID: 8300000, guid: 51302fb47c52e284b869ee7a343c0c3d, type: 3}
   comebackAfterDecline: Do you feel any better?
+  comebackAfterDeclineClip: {fileID: 8300000, guid: e2985b134b365fd45be7d09aec90945c, type: 3}
   comebackInProgress: I haven't found any. Have you?
+  comebackInProgressClip: {fileID: 8300000, guid: f23826825d8e131478dbbf21548d2f04, type: 3}
   comebackCompleted: 'Ahh the tastiest apples of Drakewood! Great job!
 
     As I
     promised I will help you out. Just follow the path and take the first left. At
     the end of the road you can find a wizard. He can help you more than I can. Be
     safe!'
+  comebackCompletedClip: {fileID: 8300000, guid: e89fb33b2bc28824e970d9303be2e9ad, type: 3}
   finalWords: Oh, another advise! See that mountain? Do not go even near it! They
     say a great dragon rests there and roasts anyone who dares to approach his lair.
+  finalWordsClip: {fileID: 8300000, guid: cae367df7e2c8734cbc1a9b6217a253d, type: 3}
   coinReward: 0
   rewardItem1: Apple
   rewardItem2: 
