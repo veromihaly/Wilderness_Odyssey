@@ -28,8 +28,14 @@ MonoBehaviour:
     Do not wander away though, these woods can be dangerous!
   comebackAfterDecline: Do you feel any better?
   comebackInProgress: I haven't found any. Have you?
-  comebackCompleted: Ahh the tastiest apples of Drakewood! Great job!
-  finalWords: Now let me show you the way.
+  comebackCompleted: 'Ahh the tastiest apples of Drakewood! Great job!
+
+    As I
+    promised I will help you out. Just follow the path and take the first left. At
+    the end of the road you can find a wizard. He can help you more than I can. Be
+    safe!'
+  finalWords: Oh, another advise! See that mountain? Do not go even near it! They
+    say a great dragon rests there and roasts anyone who dares to approach his lair.
   coinReward: 0
   rewardItem1: Apple
   rewardItem2: 
@@ -37,3 +43,5 @@ MonoBehaviour:
   firstRequirementAmount: 3
   secondRequirementItem: 
   secondRequirementAmount: 0
+  hasCheckpoints: 1
+  checkpoints: []

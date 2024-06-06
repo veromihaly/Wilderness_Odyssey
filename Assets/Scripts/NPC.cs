@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -197,17 +198,61 @@ public class NPC : MonoBehaviour
                 secondItemCounter++;
             }
         }
- 
+
+        SetQuestHasCheckpoints(currentActiveQuest);
+
+        bool allCheckpointsCompleted = false;
+
+        if(currentActiveQuest.info.hasCheckpoints)
+        {
+            foreach(Checkpoint cp in currentActiveQuest.info.checkpoints)
+            {
+                if(cp.isCompleted == false)
+                {
+                    allCheckpointsCompleted = false; // If atleast one is false, then return false
+                    break;
+                }
+
+                allCheckpointsCompleted = true;
+            }
+        }
+
         if (firstItemCounter >= firstRequiredAmount && secondItemCounter >= secondRequiredAmount)
         {
-            return true;
+            if(currentActiveQuest.info.hasCheckpoints) //If we have Checkpoint requirements
+            {
+                if(allCheckpointsCompleted) // If Item & Checkpoint Requirements are completed;
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return true;
+            }
         }
         else
         {
             return false;
         }
     }
- 
+
+    private void SetQuestHasCheckpoints(Quest activeQuest)
+    {
+        if(activeQuest.info.checkpoints.Count > 0)
+        {
+            activeQuest.info.hasCheckpoints = true;
+        }
+        else
+        {
+            activeQuest.info.hasCheckpoints = false;
+        }
+    }
+
     private void StartQuestInitialDialog()
     {
         DialogSystem.Instance.OpenDialogUI();

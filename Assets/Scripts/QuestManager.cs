@@ -75,15 +75,38 @@ public class QuestManager : MonoBehaviour
             if (req2 != "") // if we have 2 requirements
             {
                 tRow.requirements.text = $"{req1} " + InventorySystem.Instance.CheckItemAmount(req1) + "/" + $"{req1Amount}\n" +
-               $"{req2} " + InventorySystem.Instance.CheckItemAmount(req2) + "/" + $"{req2Amount}\n";
+               $"{req2} " + InventorySystem.Instance.CheckItemAmount(req2) + "/" + $"{req2Amount}";
             }
             else // if we have only one
             {
-                tRow.requirements.text = $"{req1} " + InventorySystem.Instance.CheckItemAmount(req1) + "/" + $"{req1Amount}\n";
+                tRow.requirements.text = $"{req1} " + InventorySystem.Instance.CheckItemAmount(req1) + "/" + $"{req1Amount}";
             }
  
- 
+            if(trackedQuest.info.hasCheckpoints)
+            {
+                var existingText = tRow.requirements.text;
+                tRow.requirements.text = PrintCheckpoints(trackedQuest, existingText);
+            }
         }
+    }
+
+    private string PrintCheckpoints(Quest trackedQuest, string existingText)
+    {
+        var finalText = existingText; //Apple 0/3 
+                                      //Reach the wizard [Completed]
+
+        foreach(Checkpoint cp in trackedQuest.info.checkpoints)
+        {
+            if(cp.isCompleted)
+            {
+                finalText = finalText + "\n" + cp.name + " [Completed]";
+            }
+            else
+            {
+                finalText = finalText + "\n" + cp.name;
+            }
+        }
+        return finalText;
     }
 
     void Update()

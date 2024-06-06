@@ -40,5 +40,8 @@ public class QuestInfo : ScriptableObject
 
     public string secondRequirementItem;
     public int secondRequirementAmount;
+
+    public bool hasCheckpoints;
+    public List<Checkpoint> checkpoints;
 }
 
