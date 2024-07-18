@@ -48,10 +48,6 @@ public class SelectionManager : MonoBehaviour
         {
             var selectionTransform = hit.transform;
 
-            InteractableObject Interactable = selectionTransform.GetComponent<InteractableObject>();
-
-            ChoppableTree choppableTree = selectionTransform.GetComponent<ChoppableTree>();
-
             NPC npc = selectionTransform.GetComponent<NPC>();
             if (npc && npc.playerInRange)
             {
@@ -75,6 +71,7 @@ public class SelectionManager : MonoBehaviour
                 interaction_Info_UI.SetActive(false);
             }
 
+            ChoppableTree choppableTree = selectionTransform.GetComponent<ChoppableTree>();
             if(choppableTree && choppableTree.playerInRange)
             {
                 choppableTree.canBeChopped = true;
@@ -91,6 +88,7 @@ public class SelectionManager : MonoBehaviour
                 }
             }
 
+            InteractableObject Interactable = selectionTransform.GetComponent<InteractableObject>();
             if (Interactable && Interactable.playerInRange)
             {
                 onTarget = true;
@@ -116,6 +114,23 @@ public class SelectionManager : MonoBehaviour
                 handIcon.gameObject.SetActive(false);
                 centerDotImage.gameObject.SetActive(true);
             }
+
+            Animal animal = selectionTransform.GetComponent<Animal>();
+            if(animal && animal.playerInRange)
+            {
+                interaction_text.text = animal.animalName;
+                interaction_Info_UI.SetActive(true);
+
+                if(Input.GetMouseButtonDown(0) && EquipSystem.Instance.IsHoldingWeapon())
+                {
+                    StartCoroutine(DealDamageTo(animal, 0.3f, EquipSystem.Instance.GetWeaponDamage()));
+                }
+            }
+            else
+            {
+                interaction_text.text = "";
+                interaction_Info_UI.SetActive(false);
+            }
  
         }
         else //if there is no hit at all.
@@ -125,6 +140,13 @@ public class SelectionManager : MonoBehaviour
             handIcon.gameObject.SetActive(false);
             centerDotImage.gameObject.SetActive(true);
         }
+    }
+
+    IEnumerator DealDamageTo(Animal animal, float delay, int damage)
+    {
+        yield return new WaitForSeconds(delay);
+
+        animal.TakeDamage(damage);
     }
 
     public void DisableSelection()
