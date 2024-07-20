@@ -22,7 +22,7 @@ public class Animal : MonoBehaviour
     public bool swingWait = false;
 
     [SerializeField] ParticleSystem bloodSplashParticles;
-    [SerializeField] GameObject bloodPuddle;
+    public GameObject bloodPuddle;
 
     enum AnimalType
     {
