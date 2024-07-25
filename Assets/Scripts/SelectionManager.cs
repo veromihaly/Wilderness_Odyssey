@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.UI;
  
@@ -8,19 +9,20 @@ public class SelectionManager : MonoBehaviour
 {
 
     public static SelectionManager Instance {get;set;}
-
-    public bool onTarget;
-
-    public GameObject selectedObject;
  
     public GameObject interaction_Info_UI;
     Text interaction_text;
 
     public Image centerDotImage;
     public Image handIcon;
+    
+    public bool onTarget;
 
+    public GameObject selectedObject;
     public GameObject selectedTree;
     public GameObject chopHolder;
+
+    public GameObject selectedStorageBox;
  
     private void Start()
     {
@@ -95,6 +97,27 @@ public class SelectionManager : MonoBehaviour
                 handIcon.gameObject.SetActive(true);
             }
 
+            StorageBox storageBox = selectionTransform.GetComponent<StorageBox>();
+            if (storageBox && storageBox.playerInRange && !PlacementSystem.Instance.inPlacementMode)
+            {
+                interaction_text.text = "Open";
+                interaction_Info_UI.SetActive(true);
+
+                selectedStorageBox = storageBox.gameObject;
+
+                if(Input.GetKeyDown(KeyCode.E))
+                {
+                    StorageManager.Instance.OpenBox(storageBox);
+                }
+            }
+            else
+            {
+                if(selectedStorageBox != null)
+                {
+                    selectedStorageBox = null;
+                }
+            }
+
             Animal animal = selectionTransform.GetComponent<Animal>();
             if(animal && animal.playerInRange)
             {
@@ -135,7 +158,7 @@ public class SelectionManager : MonoBehaviour
                 handIcon.gameObject.SetActive(false);
             }
 
-            if(!npc && !interactable && !animal && !choppableTree)
+            if(!npc && !interactable && !animal && !choppableTree && !storageBox)
             {
                 interaction_text.text = "";
                 interaction_Info_UI.SetActive(false);

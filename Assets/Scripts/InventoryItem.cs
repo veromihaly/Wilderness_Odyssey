@@ -92,7 +92,6 @@ public class InventoryItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
             if(isUseable)
             {
-                ConstructionManager.Instance.itemToBeDestroyed = gameObject;
                 gameObject.SetActive(false);
                 UseItem();
             }
@@ -136,16 +135,20 @@ public class InventoryItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         switch(gameObject.name)
         {
             case "Foundation(Clone)":
+                ConstructionManager.Instance.itemToBeDestroyed = gameObject;
                 ConstructionManager.Instance.ActivateConstructionPlacement("FoundationModel");
                 break;
-            case "Foundation":
-                ConstructionManager.Instance.ActivateConstructionPlacement("FoundationModel"); //For testing
-                break;
             case "Wall(Clone)":
+                ConstructionManager.Instance.itemToBeDestroyed = gameObject;
                 ConstructionManager.Instance.ActivateConstructionPlacement("WallModel");
                 break;
-            case "Wall":
-                ConstructionManager.Instance.ActivateConstructionPlacement("WallModel"); //For testing
+            case "StorageBox(Clone)":
+                PlacementSystem.Instance.inventoryItemToDestory = gameObject;
+                PlacementSystem.Instance.ActivatePlacementMode("StorageBoxModel");
+                break;
+            case "StorageBox":
+                PlacementSystem.Instance.inventoryItemToDestory = gameObject;
+                PlacementSystem.Instance.ActivatePlacementMode("StorageBoxModel");
                 break;
             default:
                 //do nothing

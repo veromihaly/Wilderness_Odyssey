@@ -112,6 +112,7 @@ GameObject:
   - component: {fileID: 6581892475359896929}
   - component: {fileID: 4478041550465592604}
   - component: {fileID: 3413823335902702275}
+  - component: {fileID: 636002730075044954}
   m_Layer: 0
   m_Name: Giant Rabbit
   m_TagString: Untagged
@@ -266,6 +267,7 @@ MonoBehaviour:
   rabbitHitAndScream: {fileID: 8300000, guid: 7c897f37771a03d47bb48b35f66f30d4, type: 3}
   rabbitHitAndDie: {fileID: 8300000, guid: 9ca8f191752abb147bbf14278f08f656, type: 3}
   isDead: 0
+  swingWait: 0
   bloodSplashParticles: {fileID: 6712156135722878007}
   bloodPuddle: {fileID: 4505841748499082335}
   thisAnimalType: 0
@@ -366,6 +368,27 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &636002730075044954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1213513611153062622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4f14249f595d40428ac6d9ddf6c211f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  possibleLoot:
+  - item: {fileID: 2796177136735831888, guid: 7698c2061d706af4eba06f493184d6c4, type: 3}
+    amountMin: 1
+    amountMax: 3
+  - item: {fileID: 2796177136735831888, guid: 1011f1866e413634fbae70fc51e10228, type: 3}
+    amountMin: 2
+    amountMax: 4
+  finalLoot: []
+  wasLootCalculated: 0
 --- !u!1 &1713954836321960610
 GameObject:
   m_ObjectHideFlags: 0

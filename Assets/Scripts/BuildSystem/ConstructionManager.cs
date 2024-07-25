@@ -217,7 +217,7 @@ public class ConstructionManager : MonoBehaviour
             }
         }
         // X to Cancel
-        if (Input.GetKeyDown(KeyCode.X))
+        if (Input.GetKeyDown(KeyCode.X) && inConstructionMode)
         {     
             itemToBeDestroyed.SetActive(true);
             itemToBeDestroyed = null;
