@@ -35820,6 +35820,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allItems: {fileID: 831715223}
+  allTrees: {fileID: 1667828521}
+  allAnimals: {fileID: 447788645}
+  placeables: {fileID: 184507454}
 --- !u!1001 &1010968123
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -72330,7 +72333,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2103452865173168937, guid: 92fd397f6dc9b1f45b0fb8d334b2d594, type: 3}
       propertyPath: m_Name
-      value: Small Rabbit
+      value: Small Rabbit(1)
       objectReference: {fileID: 0}
     - target: {fileID: 8539626554483876628, guid: 92fd397f6dc9b1f45b0fb8d334b2d594, type: 3}
       propertyPath: m_LocalPosition.x
