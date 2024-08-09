@@ -58,7 +58,7 @@ public class MenuManager : MonoBehaviour
 
             isMenuOpen = false;
 
-            if(!CraftingSystem.Instance.isOpen && !InventorySystem.Instance.isOpen)
+            if(!CraftingSystem.Instance.isOpen && !InventorySystem.Instance.isOpen && !StorageManager.Instance.storageUIOpen && !CampfireUIManager.Instance.isUiOpen)
             {
                 Cursor.lockState = CursorLockMode.Locked;
                 Cursor.visible = false;

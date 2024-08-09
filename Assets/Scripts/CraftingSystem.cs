@@ -17,10 +17,10 @@ public class CraftingSystem : MonoBehaviour
     Button toolsBTN, survivalBTN, refineBTN, constructBTN;
 
     //Craft Buttons
-    Button craftAxeBTN, craftPlankBTN, craftFoundationBTN, craftWallBTN, craftStorageBoxBTN;
+    Button craftAxeBTN, craftPlankBTN, craftFoundationBTN, craftWallBTN, craftStorageBoxBTN, craftCampfireBTN;
 
     //Requirement Text
-    Text AxeReq1, AxeReq2, PlankReq1, FoundationReq1, WallReq1, StorageBoxReq1;
+    Text AxeReq1, AxeReq2, PlankReq1, FoundationReq1, WallReq1, StorageBoxReq1, CampfireReq1, CampfireReq2;
 
     public bool isOpen;
 
@@ -30,6 +30,7 @@ public class CraftingSystem : MonoBehaviour
     public Blueprint FoundationBLP = new Blueprint("Foundation",1, 1,"Plank",4,"",0);
     public Blueprint WallBLP = new Blueprint("Wall",1, 1,"Plank",2,"",0);
     public Blueprint StorageBoxBLP = new Blueprint("StorageBox",1, 1,"Plank",2,"",0);
+    public Blueprint CampfireBLP = new Blueprint("Campfire",1, 2,"Stick",3,"Stone",3);
 
     public static CraftingSystem Instance {get;set;}
 
@@ -92,6 +93,13 @@ public class CraftingSystem : MonoBehaviour
 
         craftStorageBoxBTN = survivalScreenUI.transform.Find("StorageBox").transform.Find("Button").GetComponent<Button>();
         craftStorageBoxBTN.onClick.AddListener(delegate{CraftAnyItem(StorageBoxBLP);});
+    
+        //Campfire
+        CampfireReq1 = survivalScreenUI.transform.Find("Campfire").transform.Find("req1").GetComponent<Text>();
+        CampfireReq2 = survivalScreenUI.transform.Find("Campfire").transform.Find("req2").GetComponent<Text>();
+
+        craftCampfireBTN = survivalScreenUI.transform.Find("Campfire").transform.Find("Button").GetComponent<Button>();
+        craftCampfireBTN.onClick.AddListener(delegate{CraftAnyItem(CampfireBLP);});
     }
 
     void OpenToolsCategory()
@@ -188,7 +196,7 @@ public class CraftingSystem : MonoBehaviour
             survivalScreenUI.SetActive(false);
             refineScreenUI.SetActive(false);
             constructionScreenUI.SetActive(false);
-            if(!InventorySystem.Instance.isOpen)
+            if(!InventorySystem.Instance.isOpen && !StorageManager.Instance.storageUIOpen && !CampfireUIManager.Instance.isUiOpen)
             {
                 Cursor.lockState = CursorLockMode.Locked;
                 Cursor.visible = false;
@@ -292,6 +300,20 @@ public class CraftingSystem : MonoBehaviour
         else
         {
             craftStorageBoxBTN.gameObject.SetActive(false);
+        }
+
+        //---Campfire---//
+
+        CampfireReq1.text = "3 Sticks [" + stick_count + "]";
+        CampfireReq2.text = "3 Stones [" + stone_count + "]";
+
+        if(stone_count >= 3 && stick_count >= 3 && InventorySystem.Instance.CheckSlotsAvailable(1))
+        {
+            craftCampfireBTN.gameObject.SetActive(true);
+        }
+        else
+        {
+            craftCampfireBTN.gameObject.SetActive(false);
         }
     }
 }
