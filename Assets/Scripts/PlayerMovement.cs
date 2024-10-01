@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -9,6 +10,8 @@ public class PlayerMovement : MonoBehaviour
     public float speed = 12f;
     public float gravity = -9.81f * 2;
     public float jumpHeight = 3f;
+
+    public bool jumpWait = false;
  
     public Transform groundCheck;
     public float groundDistance = 0.4f;
@@ -49,10 +52,13 @@ public class PlayerMovement : MonoBehaviour
         controller.Move(move * speed * Time.deltaTime);
  
         //check if the player is on the ground so he can jump
-        if (Input.GetButtonDown("Jump") && isGrounded)
+        if (Input.GetButtonDown("Jump") && isGrounded && !jumpWait)
         {
+            jumpWait = true;
+            PlayerState.Instance.currentCalories -= 10;
             //the equation for jumping
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+            StartCoroutine(NewJumpDelay());
         }
  
         velocity.y += gravity * Time.deltaTime;
@@ -70,5 +76,11 @@ public class PlayerMovement : MonoBehaviour
             SoundManager.Instance.grassWalkSound.Stop();
         }
         lastPosition = gameObject.transform.position;
+    }
+
+    IEnumerator NewJumpDelay()
+    {
+        yield return new WaitForSeconds(0.9f);
+        jumpWait = false;
     }
 }

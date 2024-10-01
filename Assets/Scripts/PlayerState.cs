@@ -66,12 +66,6 @@ public class PlayerState : MonoBehaviour
             distanceTravelled = 0;
             currentCalories -= 1;
         }
-
-        //testing the bars
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            currentCalories -= 10;
-        }
     }
 
     public void setHealth(float newHealth)

@@ -20,6 +20,8 @@ public class DayNightSystem : MonoBehaviour
 
     public TextMeshProUGUI timeUI;
 
+    public WeatherSystem weatherSystem;
+
     // Update is called once per frame
     void Update()
     {
@@ -35,7 +37,21 @@ public class DayNightSystem : MonoBehaviour
         directionalLight.transform.rotation = Quaternion.Euler(new Vector3((currentTimeOfDay * 360) - 90, 170, 0));
 
         // Update the skybox material based on the time of day.
-        UpdateSkybox();
+        if(!weatherSystem.isSpecialWeather)
+        {
+            UpdateSkybox();
+        }
+
+        if(currentHour == 0 && lockNextDayTrigger == false)
+        {
+            TimeManager.Instance.TriggerNextDay();
+            lockNextDayTrigger = true;
+        }
+
+        if(currentHour != 0)
+        {
+            lockNextDayTrigger = false;
+        }
     }
 
     private void UpdateSkybox()
@@ -62,17 +78,6 @@ public class DayNightSystem : MonoBehaviour
                 }
                 break;
             }
-        }
-
-        if(currentHour == 0 && lockNextDayTrigger == false)
-        {
-            TimeManager.Instance.TriggerNextDay();
-            lockNextDayTrigger = true;
-        }
-
-        if(currentHour != 0)
-        {
-            lockNextDayTrigger = false;
         }
 
         if(currentSkybox != null)
