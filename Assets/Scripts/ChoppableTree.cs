@@ -68,6 +68,8 @@ public class ChoppableTree : MonoBehaviour
         SoundManager.Instance.PlaySound(SoundManager.Instance.treeFallSound);
     
         brokenTree.transform.SetParent(transform.parent.transform.parent.transform.parent);
+
+        brokenTree.GetComponent<RegrowTree>().dayOfRegrowth = TimeManager.Instance.dayInGame + 2; //2 days to regrowth
     }
 
     private void Update()

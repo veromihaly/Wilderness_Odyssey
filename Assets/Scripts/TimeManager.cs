@@ -21,7 +21,7 @@ public class TimeManager : MonoBehaviour
 
     public Season currentSeason = Season.Spring;
 
-    private int dayPerSeason = 2;
+    private int dayPerSeason = 30;
     private int daysInCurrentSeason = 1;
 
     public enum DayOfWeek
