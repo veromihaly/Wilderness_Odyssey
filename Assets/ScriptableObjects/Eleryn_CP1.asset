@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bdb61b0c3bf1fb46ab8ece2e5818a83, type: 3}
   m_Name: Eleryn_CP1
   m_EditorClassIdentifier: 
-  name: Reach the wizard
+  name: Reach the village
   isCompleted: 0

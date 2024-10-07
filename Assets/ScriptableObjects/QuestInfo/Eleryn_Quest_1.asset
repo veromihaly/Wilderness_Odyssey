@@ -18,13 +18,13 @@ MonoBehaviour:
     I did not expect to meet anyone out here. How did you get here? '
   - Oh, where are my manners. My name is Eleryn. I am the druid of these woods. What
     is your name?
-  - Nice to meet you Midas! So you don't remember anything and how you got here.
-    Listen. I will help you out of these woods, but first help me get the things
-    I came for. Apples. I love them! The tasty ones grow around here.
+  - So you don't remember anything, not even your name and how you got here. Listen.
+    I will help you out, but first help me get the things I came for. Apples. I love
+    them! The tasty ones grow around here.
   initialDialogClips:
   - {fileID: 8300000, guid: 1b3a90359639f1c49884175a45a56106, type: 3}
   - {fileID: 8300000, guid: 9d0a1186a923b824f9a5bc45c6cf5271, type: 3}
-  - {fileID: 8300000, guid: 7f089933623a5884b8bf5a6700fc4dbe, type: 3}
+  - {fileID: 8300000, guid: b5392415c766baf43903788590a15e7c, type: 3}
   acceptOption: Sure.
   acceptAnswer: Let us get to it then!
   acceptAnswerClip: {fileID: 8300000, guid: e1be913d1c7329343842655ff0552fe5, type: 3}
@@ -40,18 +40,20 @@ MonoBehaviour:
 
     As I
     promised I will help you out. Just follow the path and take the first left. At
-    the end of the road you can find a wizard. He can help you more than I can. Be
-    safe!'
-  comebackCompletedClip: {fileID: 8300000, guid: e89fb33b2bc28824e970d9303be2e9ad, type: 3}
-  finalWords: Oh, another advise! See that mountain? Do not go even near it! They
-    say a great dragon rests there and roasts anyone who dares to approach his lair.
-  finalWordsClip: {fileID: 8300000, guid: cae367df7e2c8734cbc1a9b6217a253d, type: 3}
+    the end of the road you can find a village. They can help you more than I can.
+    Be safe!'
+  comebackCompletedClip: {fileID: 8300000, guid: 2e8b2395f00ea6645aa795d2c71fe5ae, type: 3}
+  finalWords: "Oh about the shard\u2026 it\u2019s been in my family for generations,
+    but no one knew what it was meant for. They say it carries a sliver of ancient
+    power\u2014one that only those with a certain spirit can even hold. Perhaps it\u2019s
+    meant for you."
+  finalWordsClip: {fileID: 8300000, guid: 8652d22a42e35374e9fcef3487784a8b, type: 3}
   coinReward: 0
-  rewardItem1: Apple
+  rewardItem1: Orb Shard(1)
   rewardItem2: 
   firstRequirementItem: Apple
   firstRequirementAmount: 3
   secondRequirementItem: 
   secondRequirementAmount: 0
-  hasCheckpoints: 1
+  hasCheckpoints: 0
   checkpoints: []

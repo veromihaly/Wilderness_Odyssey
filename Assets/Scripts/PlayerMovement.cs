@@ -5,8 +5,9 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-     public CharacterController controller;
- 
+    public CharacterController controller;
+
+    public Animator animator;
     public float speed = 12f;
     public float gravity = -9.81f * 2;
     public float jumpHeight = 3f;
@@ -67,13 +68,31 @@ public class PlayerMovement : MonoBehaviour
 
         if(lastPosition != gameObject.transform.position && isGrounded == true)
         {
+            animator.SetBool("isRunning", true);
             isMoving = true;
             SoundManager.Instance.PlaySound(SoundManager.Instance.grassWalkSound);
+            SoundManager.Instance.woodWalkSound.Stop();
+            if(WeatherSystem.Instance.isSpecialWeather)
+            {
+                WeatherSystem.Instance.rainEffect.SetActive(true);
+            }
+        }
+        else if(lastPosition != gameObject.transform.position && isGrounded == false && !jumpWait)
+        {
+            isMoving = true;
+            SoundManager.Instance.PlaySound(SoundManager.Instance.woodWalkSound);
+            SoundManager.Instance.grassWalkSound.Stop();
+            if(WeatherSystem.Instance.isSpecialWeather)
+            {
+                WeatherSystem.Instance.rainEffect.SetActive(false);
+            }
         }
         else
         {
             isMoving = false;
             SoundManager.Instance.grassWalkSound.Stop();
+            SoundManager.Instance.woodWalkSound.Stop();
+            animator.SetBool("isRunning", false);
         }
         lastPosition = gameObject.transform.position;
     }

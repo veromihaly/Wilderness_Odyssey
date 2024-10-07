@@ -11,6 +11,8 @@ public class SoundManager : MonoBehaviour
     public AudioSource toolSwingSound;
     public AudioSource chopTreeSound;
     public AudioSource grassWalkSound;
+
+    public AudioSource woodWalkSound;
     public AudioSource craftSound;
     public AudioSource pickupItemSound;
     public AudioSource treeFallSound;

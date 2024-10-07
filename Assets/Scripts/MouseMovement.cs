@@ -5,35 +5,35 @@ using UnityEngine;
 public class MouseMovement : MonoBehaviour
 {
     public float mouseSensitivity = 100f;
- 
-    float xRotation = 0f;
-    float YRotation = 0f;
- 
+    public Transform playerBody; // Reference to the player body
+
+    private float xRotation = 0f;
+
     void Start()
     {
-      //Locking the cursor to the middle of the screen and making it invisible
-      Cursor.lockState = CursorLockMode.Locked;
+        // Lock the cursor to the middle of the screen and make it invisible
+        Cursor.lockState = CursorLockMode.Locked;
     }
- 
+
     void Update()
     {
-      if(!InventorySystem.Instance.isOpen && !CraftingSystem.Instance.isOpen && !MenuManager.Instance.isMenuOpen && !DialogSystem.Instance.dialogUIActive && 
-      !QuestManager.Instance.isQuestMenuOpen && !StorageManager.Instance.storageUIOpen && !CampfireUIManager.Instance.isUiOpen)
-      {
-       float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
-       float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
- 
-       //control rotation around x axis (Look up and down)
-       xRotation -= mouseY;
- 
-       //we clamp the rotation so we cant Over-rotate (like in real life)
-       xRotation = Mathf.Clamp(xRotation, -90f, 90f);
- 
-       //control rotation around y axis (Look up and down)
-       YRotation += mouseX;
- 
-       //applying both rotations
-       transform.localRotation = Quaternion.Euler(xRotation, YRotation, 0f);
-      }
+        if (!InventorySystem.Instance.isOpen && !CraftingSystem.Instance.isOpen &&
+            !MenuManager.Instance.isMenuOpen && !DialogSystem.Instance.dialogUIActive &&
+            !QuestManager.Instance.isQuestMenuOpen && !StorageManager.Instance.storageUIOpen &&
+            !CampfireUIManager.Instance.isUiOpen)
+        {
+            float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
+            float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
+
+            // Control rotation around x-axis (look up and down)
+            xRotation -= mouseY;
+            xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+
+            // Apply vertical rotation to the camera
+            transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+
+            // Rotate the player's body based on mouseX
+            playerBody.Rotate(Vector3.up * mouseX);
+        }
     }
-} 
+}

@@ -22,6 +22,20 @@ public class WeatherSystem : MonoBehaviour
     public AudioSource rainChannel;
     public AudioClip rainSound;
 
+    public static WeatherSystem Instance {get;set;}
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            Instance = this;
+        }
+    }
+
     public enum WeatherCondition
     {
         Sunny,
