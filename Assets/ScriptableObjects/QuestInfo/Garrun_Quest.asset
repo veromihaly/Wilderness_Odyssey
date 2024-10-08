@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6117eb4edb7323041a1013a284a650bd, type: 3}
+  m_Name: Garrun_Quest
+  m_EditorClassIdentifier: 
+  initialDialog:
+  - "Hmm\u2026 I don\u2019t recognize you. Not many outsiders find their way here.
+    I am Chief Garrun, and I protect these lands. Tell me, traveler, what brings
+    you so far into our realm?"
+  - "You say you remember nothing? Hmm\u2026 *He strokes his white beard thoughtfully*
+    And yet you claim to have crossed paths with a druid named Eleryn.\n*He pauses,
+    his brow furrowing as he contemplates.*\nEleryn, you say? I know of no one by
+    that name, and druids are rare in these lands. Strange\u2026 perhaps your meeting
+    was no mere chance."
+  - "Intriguing. But mysteries can wait. There are more pressing matters.\nThe lake\u2014foul
+    creatures have begun to emerge, threatening our people and our land.\nYou may
+    not remember your past, but your presence here could be a sign. Will you lend
+    your strength to help us drive these beasts from our waters?"
+  initialDialogClips:
+  - {fileID: 8300000, guid: 46f55232fed472845888889cb8d4c3ac, type: 3}
+  - {fileID: 8300000, guid: 06132025a3328d14bb9191e0c879168e, type: 3}
+  - {fileID: 8300000, guid: 9d80a73c35db4fc41b8568443c8d7d0a, type: 3}
+  acceptOption: I will do my best.
+  acceptAnswer: Good. Our village will not forget this. Go, and may strength guide
+    you at the lake.
+  acceptAnswerClip: {fileID: 8300000, guid: 1526e610f5dc964439f1c51bad195543, type: 3}
+  declineOption: Sorry, but I don't think I can help.
+  declineAnswer: Very well. But remember, some duties cannot wait forever. Return
+    if you change your mind.
+  declineAnswerClip: {fileID: 8300000, guid: fa183d0463ec4aa41bf0fedf6ab00100, type: 3}
+  comebackAfterDecline: So, did you change your mind?
+  comebackAfterDeclineClip: {fileID: 8300000, guid: 4b7f1ec7dc5e5d34493aea0dc0cbc2f5, type: 3}
+  comebackInProgress: "The creatures still lurk in the waters. Finish what you\u2019ve
+    begun, and peace will return to our village."
+  comebackInProgressClip: {fileID: 8300000, guid: 85d4f7381c035c544ad6cfec85d65b96, type: 3}
+  comebackCompleted: "You\u2019ve done well. The lake is calm once more, thanks to
+    you.Our people owe you a great debt. Now, perhaps we can unravel more of the
+    mysteries that brought you here."
+  comebackCompletedClip: {fileID: 8300000, guid: e469d74e8ae99f14fac14513686b6ccf, type: 3}
+  finalWords: "Ah, before I forget...Take this. A token of thanks for your troubles\u2014you\u2019ll
+    need to regain your strength after the fight."
+  finalWordsClip: {fileID: 8300000, guid: 02507e3eec131b645bf0e9a3aa6c7d7f, type: 3}
+  coinReward: 0
+  rewardItem1: Cooked Meat
+  rewardItem2: Apple
+  firstRequirementItem: Scale
+  firstRequirementAmount: 3
+  secondRequirementItem: 
+  secondRequirementAmount: 0
+  hasCheckpoints: 0
+  checkpoints: []
