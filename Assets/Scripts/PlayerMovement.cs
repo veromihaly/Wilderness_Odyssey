@@ -80,12 +80,12 @@ public class PlayerMovement : MonoBehaviour
         else if(lastPosition != gameObject.transform.position && isGrounded == false && !jumpWait)
         {
             isMoving = true;
-            SoundManager.Instance.PlaySound(SoundManager.Instance.woodWalkSound);
             SoundManager.Instance.grassWalkSound.Stop();
             if(WeatherSystem.Instance.isSpecialWeather)
             {
                 WeatherSystem.Instance.rainEffect.SetActive(false);
             }
+            StartCoroutine(woodWalkDelay());
         }
         else
         {
@@ -101,5 +101,11 @@ public class PlayerMovement : MonoBehaviour
     {
         yield return new WaitForSeconds(0.9f);
         jumpWait = false;
+    }
+
+    IEnumerator woodWalkDelay()
+    {
+        yield return new WaitForSeconds(0.5f);
+        SoundManager.Instance.PlaySound(SoundManager.Instance.woodWalkSound);
     }
 }

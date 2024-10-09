@@ -15,6 +15,8 @@ public class Animal : MonoBehaviour
     [SerializeField] AudioSource soundChannel;
     [SerializeField] AudioClip rabbitHitAndScream;
     [SerializeField] AudioClip rabbitHitAndDie;
+    [SerializeField] AudioClip catfishHitAndScream;
+    [SerializeField] AudioClip catfishHitAndDie;
 
     private  Animator animator;
 
@@ -26,7 +28,8 @@ public class Animal : MonoBehaviour
 
     enum AnimalType
     {
-        Rabbit
+        Rabbit,
+        Catfish
     }
 
     [SerializeField] AnimalType thisAnimalType;
@@ -85,6 +88,9 @@ public class Animal : MonoBehaviour
             case AnimalType.Rabbit:
                 soundChannel.PlayOneShot(rabbitHitAndDie);
                 break;
+            case AnimalType.Catfish:
+                soundChannel.PlayOneShot(catfishHitAndDie);
+                break;
             default:
                 break;
             //
@@ -97,6 +103,9 @@ public class Animal : MonoBehaviour
         {
             case AnimalType.Rabbit:
                 soundChannel.PlayOneShot(rabbitHitAndScream);
+                break;
+            case AnimalType.Catfish:
+                soundChannel.PlayOneShot(catfishHitAndScream);
                 break;
             default:
                 break;
