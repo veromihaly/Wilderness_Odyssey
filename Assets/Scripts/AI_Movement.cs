@@ -5,6 +5,12 @@ using UnityEngine.AI;
  
 public class AI_Movement : MonoBehaviour
 {
+    public static AI_Movement Instance {get;set;}
+
+    private void Awake()
+    {
+        Instance = this;
+    }
  
     Animator animator;
  

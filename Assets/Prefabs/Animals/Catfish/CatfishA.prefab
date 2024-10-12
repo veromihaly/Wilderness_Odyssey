@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5315063736403840762
 Transform:
   m_ObjectHideFlags: 0
@@ -5161,6 +5161,7 @@ MonoBehaviour:
   playerInRange: 0
   currentHealth: 0
   maxHealth: 120
+  damage: 2
   soundChannel: {fileID: 2648263012936572862}
   rabbitHitAndScream: {fileID: 0}
   rabbitHitAndDie: {fileID: 0}
@@ -5171,6 +5172,7 @@ MonoBehaviour:
   bloodSplashParticles: {fileID: 1807983048259547907}
   bloodPuddle: {fileID: 1775488901352675809}
   thisAnimalType: 1
+  thisAnimalBehaviour: 1
 --- !u!82 &2648263012936572862
 AudioSource:
   m_ObjectHideFlags: 0

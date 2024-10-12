@@ -28,9 +28,9 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!DialogSystem.Instance.dialogUIActive && !StorageManager.Instance.storageUIOpen && !CampfireUIManager.Instance.isUiOpen)
+        if(!DialogSystem.Instance.dialogUIActive && !StorageManager.Instance.storageUIOpen && !CampfireUIManager.Instance.isUiOpen && !GameOverMaganer.Instance.isGameOver)
         {
-        Movement();
+            Movement();
         }
     }
 
@@ -56,7 +56,14 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButtonDown("Jump") && isGrounded && !jumpWait)
         {
             jumpWait = true;
-            PlayerState.Instance.currentCalories -= 10;
+            if(PlayerState.Instance.currentCalories == 0)
+            {
+                PlayerState.Instance.currentHealth -= 2;
+            }
+            else
+            {
+                PlayerState.Instance.currentCalories -= 10;
+            }
             //the equation for jumping
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
             StartCoroutine(NewJumpDelay());

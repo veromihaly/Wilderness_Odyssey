@@ -5033,15 +5033,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 475d05aae8eb3a94882ab417b6df0f25, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 70.25
+      value: 95.18
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 475d05aae8eb3a94882ab417b6df0f25, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.0236194
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 475d05aae8eb3a94882ab417b6df0f25, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 450.31
+      value: 441.03
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 475d05aae8eb3a94882ab417b6df0f25, type: 3}
       propertyPath: m_LocalRotation.w
@@ -5158,7 +5158,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01386a65ecb2d5a43b7df8ce1ab45ad6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 1
+  moveSpeed: 2
   walkCounter: 0
   waitCounter: 0
   isWalking: 0
@@ -5176,8 +5176,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animalName: Catfish Boss
   playerInRange: 0
+  playerIsFollowed: 0
   currentHealth: 0
   maxHealth: 200
+  damage: 5
   soundChannel: {fileID: 1803143175031401417}
   rabbitHitAndScream: {fileID: 0}
   rabbitHitAndDie: {fileID: 0}
@@ -5188,6 +5190,7 @@ MonoBehaviour:
   bloodSplashParticles: {fileID: 1209157242927605590}
   bloodPuddle: {fileID: 960330128634048770}
   thisAnimalType: 1
+  thisAnimalBehaviour: 1
 --- !u!65 &1006144072571024155
 BoxCollider:
   m_ObjectHideFlags: 0
