@@ -5176,7 +5176,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animalName: Catfish Boss
   playerInRange: 0
-  playerIsFollowed: 0
   currentHealth: 0
   maxHealth: 200
   damage: 5
@@ -5186,6 +5185,8 @@ MonoBehaviour:
   catfishHitAndScream: {fileID: 8300000, guid: f300b3003d096c94ab02218588781235, type: 3}
   catfishHitAndDie: {fileID: 8300000, guid: 9cf0cff11f5c3464d856eead3d2d466f, type: 3}
   isDead: 0
+  playerIsFollowed: 0
+  playerBeingAttacked: 0
   swingWait: 0
   bloodSplashParticles: {fileID: 1209157242927605590}
   bloodPuddle: {fileID: 960330128634048770}
@@ -5231,7 +5232,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 5.775646, y: 2.0452795, z: 6.3690186}
+  m_Size: {x: 10, y: 2.0452795, z: 10}
   m_Center: {x: -0.16791344, y: 1.0109379, z: 0.34254965}
 --- !u!54 &2776880550928458141
 Rigidbody:

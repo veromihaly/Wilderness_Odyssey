@@ -61,17 +61,83 @@ public class Animal : MonoBehaviour
             MoveTowardsPlayer();
             LookAtPlayer();
         }
-        if(playerInRange && thisAnimalBehaviour == AnimalBehaviour.Aggressive && !isDead && !playerBeingAttacked)
+        if(playerInRange && thisAnimalBehaviour == AnimalBehaviour.Aggressive && !isDead)
         {
-            animator.ResetTrigger("Following");
+            animator.SetBool("Following",false);
             playerBeingAttacked = true;
             playerIsFollowed = false;
             LookAtPlayer();
             AI_Movement.Instance.isWalking = false;
             GetComponent<AI_Movement>().enabled = false;
-            animator.SetTrigger("Attack");
+            animator.SetBool("Attack",true);
             StartCoroutine(AttackPlayer());
         }
+    }
+
+    IEnumerator AttackReset()
+    {
+        yield return new WaitForSeconds(0.1f);
+        animator.SetBool("Attack",false);
+    }
+
+    public void LookAtPlayer()
+    {
+        var player = PlayerState.Instance.playerBody.transform;
+        Vector3 direction = player.position - transform.position;
+        transform.rotation = Quaternion.LookRotation(direction);
+ 
+        var yRotation = transform.eulerAngles.y;
+        transform.rotation = Quaternion.Euler(0,yRotation,0);
+ 
+    }
+    IEnumerator AttackPlayer()
+    {
+        float healthBeforeAttack = PlayerState.Instance.currentHealth;
+        yield return new WaitForSeconds(1.3f);  // Attack delay
+
+        if (playerInRange)
+        {    
+            PlayerState.Instance.setHealth(healthBeforeAttack - damage);
+        }
+        else
+        {
+            // Start following the player immediately if they are out of range
+            playerBeingAttacked = false;
+            StartCoroutine(AttackReset());
+            animator.SetBool("Following",true);
+            playerIsFollowed = true;
+            
+            // Ensure the FollowPlayer coroutine is started when not attacking
+            if (!playerBeingAttacked && playerIsFollowed)
+            {
+                StartCoroutine(FollowPlayer());
+                animator.SetBool("Wait",false);  // Reset idle state
+            }
+        }
+    }
+
+    IEnumerator FollowPlayer()
+    {
+        yield return new WaitForSeconds(5f);
+        if(!playerBeingAttacked && playerIsFollowed)
+        {
+            playerIsFollowed = false;
+            animator.SetBool("Following",false); // Ensure following is reset
+            animator.SetBool("Wait",true);       // Return to idle after following
+
+            if (!isDead)
+            {
+                GetComponent<AI_Movement>().enabled = true;
+                AI_Movement.Instance.waitCounter = 1;
+            }
+        }
+    }
+
+    private void MoveTowardsPlayer()
+    {
+        var speed = AI_Movement.Instance.moveSpeed * 20;
+        Vector3 direction = (PlayerState.Instance.playerBody.transform.position - transform.position).normalized;
+        transform.position += direction * speed * Time.deltaTime;
     }
 
     public void TakeDamage(int damage)
@@ -146,45 +212,6 @@ public class Animal : MonoBehaviour
         }
     }
 
-    IEnumerator AttackReset()
-    {
-        yield return new WaitForSeconds(0.3f);
-        animator.ResetTrigger("Attack");
-    }
-
-    public void LookAtPlayer()
-    {
-        var player = PlayerState.Instance.playerBody.transform;
-        Vector3 direction = player.position - transform.position;
-        transform.rotation = Quaternion.LookRotation(direction);
- 
-        var yRotation = transform.eulerAngles.y;
-        transform.rotation = Quaternion.Euler(0,yRotation,0);
- 
-    }
-    IEnumerator AttackPlayer()
-    {
-        float healthBeforeAttack = PlayerState.Instance.currentHealth;
-        yield return new WaitForSeconds(1.3f);
-        playerBeingAttacked = false;
-        if(playerInRange)
-        {    
-            PlayerState.Instance.setHealth(healthBeforeAttack - damage);
-        }
-        else
-        {
-            animator.ResetTrigger("Attack");
-            animator.SetTrigger("Following");
-            playerIsFollowed = true;
-            StartCoroutine(AttackReset());
-            if(!playerBeingAttacked && playerIsFollowed)
-            {
-                StartCoroutine(FollowPlayer());
-            }
-            animator.ResetTrigger("Wait");
-        }
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("Player"))
@@ -199,22 +226,5 @@ public class Animal : MonoBehaviour
         {
             playerInRange = false;
         }
-    }
-    IEnumerator FollowPlayer()
-    {
-        yield return new WaitForSeconds(4f);
-        playerIsFollowed = false;
-        animator.SetTrigger("Wait");
-        animator.ResetTrigger("Following");
-        if(!isDead)
-        {
-            GetComponent<AI_Movement>().enabled = true;
-            AI_Movement.Instance.waitCounter = 0;
-        }
-    }
-    private void MoveTowardsPlayer()
-    {
-        Vector3 direction = (PlayerState.Instance.playerBody.transform.position - transform.position).normalized;
-        transform.position += direction * AI_Movement.Instance.moveSpeed * Time.deltaTime * 2;
     }
 }

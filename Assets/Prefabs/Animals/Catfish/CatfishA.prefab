@@ -5168,6 +5168,8 @@ MonoBehaviour:
   catfishHitAndScream: {fileID: 8300000, guid: f300b3003d096c94ab02218588781235, type: 3}
   catfishHitAndDie: {fileID: 8300000, guid: 9cf0cff11f5c3464d856eead3d2d466f, type: 3}
   isDead: 0
+  playerIsFollowed: 0
+  playerBeingAttacked: 0
   swingWait: 0
   bloodSplashParticles: {fileID: 1807983048259547907}
   bloodPuddle: {fileID: 1775488901352675809}
@@ -5316,7 +5318,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 6.718437, y: 2.1642756, z: 6.6464233}
+  m_Size: {x: 10, y: 2.1642756, z: 10}
   m_Center: {x: 0.08716202, y: 1.0835302, z: 0.40402222}
 --- !u!65 &1617399507877260442
 BoxCollider:
